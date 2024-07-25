@@ -1,8 +1,8 @@
 class Node {
-    constructor (value, next = null) {
-        this.value = value;
-        this.next = next;
-    }
+  constructor(value, next = null) {
+    this.value = value;
+    this.next = next;
+  }
 }
 
 class LinkedList {
@@ -53,27 +53,25 @@ class LinkedList {
 
   pop() {
     if (this.list === null) {
-        console.log("the list is empty");
-        return null;
+      console.log("the list is empty");
+      return null;
     }
     let linkList = this.list;
     if (linkList.next === null) {
-        const poppedvalue = linkList.value
-        this.list = null;
-        return poppedvalue;
+      const poppedvalue = linkList.value;
+      this.list = null;
+      return poppedvalue;
     } else {
-        while (linkList.next.next !== null) {
-            linkList = linkList.next;
-        }
+      while (linkList.next.next !== null) {
+        linkList = linkList.next;
+      }
 
-        const poppedvalue = linkList.next.value; 
+      const poppedvalue = linkList.next.value;
 
-        linkList.next = null;
+      linkList.next = null;
 
-        return poppedvalue;
+      return poppedvalue;
     }
-
-
   }
 
   head() {
@@ -112,44 +110,36 @@ class LinkedList {
     let linkList = this.list;
 
     if (linkList === null) {
-        console.log("The list is empty");
-        return null;
+      console.log("The list is empty");
+      return null;
     }
 
     let i = 0;
     while (linkList !== null) {
-        if (value === linkList.value) {
-            return i;
-        }
-        linkList = linkList.next;
-        i++;
+      if (value === linkList.value) {
+        return i;
+      }
+      linkList = linkList.next;
+      i++;
     }
 
     console.log("List does not have value " + value);
     return null;
+  }
+
+  toString() {
+    let linkList = this.list;
+
+    if (linkList === null) {
+      console.log("The list is empty");
+      return null;
     }
 
-    toString() {
-        let linkList = this.list;
-
-        if (linkList === null) {
-            console.log("The list is empty");
-            return null;
-        }
-
-        let string = "";
+    let string = "";
 
     while (linkList !== null) {
-        string += `( ${linkList.value} ) -> `;
-        linkList = linkList.next;
-        }
+      string += `( ${linkList.value} ) -> `;
+      linkList = linkList.next;
     }
-
+  }
 }
-
-const X = new LinkedList();
-
-X.append(1);
-X.append(2);
-X.append(3);
-X.append(4);
